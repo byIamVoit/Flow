@@ -2,30 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gamedesigner/colorpallete/pallete.dart';
 
-class SocialButton extends StatelessWidget {
+class BigButton extends StatelessWidget {
   final String iconpath;
   final String label;
   final Function()? onTap;
   final double horizontalPadding;
-  const SocialButton({
+  const BigButton({
     Key? key,
     required this.iconpath,
     required this.onTap,
     required this.label,
-    this.horizontalPadding = 30,
+    this.horizontalPadding = 100,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return TextButton.icon(
       onPressed: onTap,
       icon: SvgPicture.asset(
         iconpath,
-        width: 40,
+        width: 25,
         colorFilter: const ColorFilter.mode(
           Pallete.iceWhite,
           BlendMode.srcIn,
         ),
+      ),
+      label: Text(
+        label,
+        style: const TextStyle(
+          color: Pallete.iceWhite,
+          fontSize: 17,
+        ),
+        textAlign: TextAlign.center,
       ),
       style: TextButton.styleFrom(
         padding:
